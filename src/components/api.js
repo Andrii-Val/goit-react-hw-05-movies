@@ -1,0 +1,38 @@
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+const API_KEY = '55a854986c9ec080ab718a1fcfa0ae0c';
+const options = {
+  params: {
+    api_key: API_KEY,
+  },
+}
+const getTrending = '/trending/movie/day';
+const getMovie = '/movie';
+
+export const getTrendList = async () => {
+    const response = await axios.get(`${getTrending}`, options);
+    return(response.data.results);
+};
+
+export const getMovieDetails = async (movieId) => {
+  const response = await axios.get(`${getMovie}/${movieId}`, options);
+  return(response.data);
+};
+
+export const getMovieCredits = async (movieId) => {
+  const response = await axios.get(`${getMovie}/${movieId}/credits`, options);
+  return(response.data.cast);
+};
+
+export const getMovieReviews = async (movieId) => {
+  const response = await axios.get(`${getMovie}/${movieId}/reviews`, options);
+  // console.log(response.data.results);
+  return(response.data.results);
+};
+
+export const getQuery = async (q) => {
+  const response = await axios.get(`/search${getMovie}?query=${q}`, options);
+  // console.log(response.data.results);
+  return(response.data.results);
+};
