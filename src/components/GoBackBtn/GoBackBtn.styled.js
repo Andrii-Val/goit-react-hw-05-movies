@@ -18,6 +18,6 @@ export const Button = styled.div`
   font-weight: 500;
   &:hover,
   :focus {
-    background-color: orange;
+    background-color: green;
   }
 `;

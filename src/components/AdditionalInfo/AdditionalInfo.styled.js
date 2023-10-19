@@ -28,9 +28,9 @@ export const StyledLink = styled(NavLink)`
   padding: 5px 10px;
   &:hover,
   :focus {
-    background-color: orange;
+    background-color: green;
   }
   &.active {
-    background-color: orange;
+    background-color: green;
   }
 `;
